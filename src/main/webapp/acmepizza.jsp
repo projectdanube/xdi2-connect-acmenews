@@ -30,7 +30,7 @@
 	<% } %>
 
 	<%
-		String xdiMessageEnvelope = ConnectRequests.acmepizzaConnectRequest(request).getMessageEnvelope().getGraph().toString("XDI/JSON", null);
+		String xdiMessageEnvelope = ConnectRequests.acmepizzaConnectRequest(request.getServletContext()).getMessageEnvelope().getGraph().toString("XDI/JSON", null);
 	%>
 
 	<center><form action="<%= request.getServletContext().getInitParameter("connectEndpointUri") %>" method="post">

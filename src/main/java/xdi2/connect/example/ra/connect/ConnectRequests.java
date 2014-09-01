@@ -2,7 +2,7 @@ package xdi2.connect.example.ra.connect;
 
 import java.net.URI;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.ServletContext;
 
 import xdi2.connect.core.ConnectRequest;
 import xdi2.core.impl.memory.MemoryGraphFactory;
@@ -14,18 +14,17 @@ public class ConnectRequests {
 	public static ConnectRequest ACMENEWS_CONNECT_REQUEST = null;
 	public static ConnectRequest ACMEPIZZA_CONNECT_REQUEST = null;
 
-	public static ConnectRequest acmenewsConnectRequest(HttpServletRequest request) {
+	public static ConnectRequest acmenewsConnectRequest(ServletContext servletContext) {
 
 		if (ACMENEWS_CONNECT_REQUEST == null) {
 
 			try {
 
-				String baseUri = request.getRequestURL().toString();
-				baseUri = baseUri.substring(0, baseUri.lastIndexOf('/'));
+				String baseReturnUri = servletContext.getInitParameter("connectEndpointUri");
 
 				ACMENEWS_CONNECT_REQUEST = ConnectRequest.fromMessageEnvelope(MessageEnvelope.fromGraph(MemoryGraphFactory.getInstance().loadGraph(ConnectRequests.class.getResourceAsStream("/acmenews.message.xdi"))));
 				ACMENEWS_CONNECT_REQUEST.sign(CloudName.create("+acmenews"), "acmenews");
-				ACMENEWS_CONNECT_REQUEST.setReturnUri(URI.create(baseUri + "/acmenews-return"));
+				ACMENEWS_CONNECT_REQUEST.setReturnUri(URI.create(baseReturnUri + "/acmenews-return"));
 			} catch (Exception ex) {
 
 				throw new RuntimeException(ex.getMessage(), ex);
@@ -35,18 +34,17 @@ public class ConnectRequests {
 		return ACMENEWS_CONNECT_REQUEST;
 	}
 
-	public static ConnectRequest acmepizzaConnectRequest(HttpServletRequest request) {
+	public static ConnectRequest acmepizzaConnectRequest(ServletContext servletContext) {
 
 		if (ACMEPIZZA_CONNECT_REQUEST == null) {
 
 			try {
 
-				String baseUri = request.getRequestURL().toString();
-				baseUri = baseUri.substring(0, baseUri.lastIndexOf('/'));
+				String baseReturnUri = servletContext.getInitParameter("connectEndpointUri");
 
 				ACMEPIZZA_CONNECT_REQUEST = ConnectRequest.fromMessageEnvelope(MessageEnvelope.fromGraph(MemoryGraphFactory.getInstance().loadGraph(ConnectRequests.class.getResourceAsStream("/acmepizza.message.xdi"))));
 				ACMEPIZZA_CONNECT_REQUEST.sign(CloudName.create("+acmepizza"), "acmepizza");
-				ACMEPIZZA_CONNECT_REQUEST.setReturnUri(URI.create(baseUri + "/acmepizza-return"));
+				ACMEPIZZA_CONNECT_REQUEST.setReturnUri(URI.create(baseReturnUri + "/acmepizza-return"));
 			} catch (Exception ex) {
 
 				throw new RuntimeException(ex.getMessage(), ex);
