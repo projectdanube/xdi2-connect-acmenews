@@ -42,7 +42,7 @@
 		<param-value>https://xdi2-connect-service.projectdanube.org/connect</param-value>
 	</context-param>
 	<context-param>
-		<param-name>returnBaseUri</param-name>
+		<param-name>baseReturnUri</param-name>
 		<param-value>https://xdi2-connect-example-ra.projectdanube.org/</param-value>
 	</context-param>
 

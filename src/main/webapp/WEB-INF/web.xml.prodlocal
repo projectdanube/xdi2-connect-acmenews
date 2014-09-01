@@ -42,7 +42,7 @@
 		<param-value>http://localhost:9201/connect</param-value>
 	</context-param>
 	<context-param>
-		<param-name>returnBaseUri</param-name>
+		<param-name>baseReturnUri</param-name>
 		<param-value>http://localhost:9204/</param-value>
 	</context-param>
 
