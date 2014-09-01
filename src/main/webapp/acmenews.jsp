@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
 <%@ page import="xdi2.connect.example.ra.connect.ConnectRequests" %>
-<%@ page import="xdi2.connect.example.ra.util.SignUtil" %>
 <%@ page import="xdi2.messaging.MessageEnvelope" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -31,7 +30,7 @@
 	<% } %>
 
 	<%
-		String xdiMessageEnvelope = ConnectRequests.ACMENEWS_CONNECT_REQUEST;
+		String xdiMessageEnvelope = ConnectRequests.acmenewsConnectRequest(request).getMessageEnvelope().getGraph().toString("XDI/JSON", null);
 	%>
 
 	<center><form action="<%= request.getServletContext().getInitParameter("connectEndpointUri") %>" method="post">

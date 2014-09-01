@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Deque;
 
 import xdi2.connect.core.ConnectResult;
+import xdi2.core.syntax.CloudNumber;
 
 public class AcmenewsStatus {
 
@@ -26,7 +27,9 @@ public class AcmenewsStatus {
 
 		for (Status status : statuses) {
 
-			buffer.append(status.date.toString() + ": " + status.connectResult.getCloudNumber() + "\n");
+			CloudNumber cloudNumber = status.connectResult.getCloudNumber();
+
+			buffer.append(status.date.toString() + ": " + cloudNumber + "\n");
 		}
 
 		return buffer.toString();
