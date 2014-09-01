@@ -20,7 +20,7 @@ public class ConnectRequests {
 
 			try {
 
-				String baseReturnUri = servletContext.getInitParameter("connectEndpointUri");
+				String baseReturnUri = servletContext.getInitParameter("baseReturnUri");
 
 				ACMENEWS_CONNECT_REQUEST = ConnectRequest.fromMessageEnvelope(MessageEnvelope.fromGraph(MemoryGraphFactory.getInstance().loadGraph(ConnectRequests.class.getResourceAsStream("/acmenews.message.xdi"))));
 				ACMENEWS_CONNECT_REQUEST.sign(CloudName.create("+acmenews"), "acmenews");
@@ -40,7 +40,7 @@ public class ConnectRequests {
 
 			try {
 
-				String baseReturnUri = servletContext.getInitParameter("connectEndpointUri");
+				String baseReturnUri = servletContext.getInitParameter("baseReturnUri");
 
 				ACMEPIZZA_CONNECT_REQUEST = ConnectRequest.fromMessageEnvelope(MessageEnvelope.fromGraph(MemoryGraphFactory.getInstance().loadGraph(ConnectRequests.class.getResourceAsStream("/acmepizza.message.xdi"))));
 				ACMEPIZZA_CONNECT_REQUEST.sign(CloudName.create("+acmepizza"), "acmepizza");
