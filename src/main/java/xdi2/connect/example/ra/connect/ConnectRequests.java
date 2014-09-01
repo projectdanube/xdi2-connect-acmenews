@@ -27,6 +27,7 @@ public class ConnectRequests {
 				ACMENEWS_CONNECT_REQUEST.setReturnUri(URI.create(baseReturnUri + "acmenews-return"));
 			} catch (Exception ex) {
 
+				ACMENEWS_CONNECT_REQUEST = null;
 				throw new RuntimeException(ex.getMessage(), ex);
 			}
 		}
@@ -47,6 +48,7 @@ public class ConnectRequests {
 				ACMEPIZZA_CONNECT_REQUEST.setReturnUri(URI.create(baseReturnUri + "acmepizza-return"));
 			} catch (Exception ex) {
 
+				ACMEPIZZA_CONNECT_REQUEST = null;
 				throw new RuntimeException(ex.getMessage(), ex);
 			}
 		}
