@@ -23,35 +23,35 @@
 
 	<div id="main">
 
-	<table cellpadding="0" cellspacing="0" border="0">
-
-	<tr><td>
+	<table cellpadding="0" cellspacing="0" border="0"><tr><td>
 	<form action="/acmenews.jsp">
 	    <input type="submit" value="+acmenews" class="examplera">
 	</form>
 	</td>
 	<td>Demonstrates how to subscribe to a part of an XDI graph.<br>
 	<p class="small"><%= StringEscapeUtils.escapeHtml(AcmenewsStatus.status()).replace("\n", "<br>") %></p></td>
-	</tr>
+	</tr></table>
 
-	<tr><td>
+	<hr noshade>
+
+	<table cellpadding="0" cellspacing="0" border="0"><tr><td>
 	<form action="/acmepizza.jsp">
 	    <input type="submit" value="+acmepizza" class="examplera">
 	</form>
 	</td>
 	<td>Demonstrates how to subscribe to a part of an XDI graph.
 	<p class="small"><%= StringEscapeUtils.escapeHtml(AcmepizzaStatus.status()).replace("\n", "<br>") %></p></td>
-	</tr>
+	</tr></table>
+
+	<hr noshade>
 	
-	<tr><td>
+	<table cellpadding="0" cellspacing="0" border="0"><tr><td>
 	<form action="/acmeapp.jsp">
 	    <input type="submit" value="+acmeapp" class="examplera">
 	</form>
 	</td>
 	<td>Demonstrates how to give an RA native app access to a part of an XDI graph.</td>
-	</tr>
-	
-	</table>
+	</tr></table>
 
 	</div>
 

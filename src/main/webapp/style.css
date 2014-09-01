@@ -97,8 +97,12 @@ textarea.xdi {
 }
 
 input.examplera {
-	padding: 20px;
+	width: 200px;
+	height: 80px;
 	margin: 20px;
+	font-family: Courier New, Courier, monospace;
+	font-size: 14pt;
+	font-weight: bold;
 }
 
 input.xdiconnect {
