@@ -27,9 +27,7 @@ public class AcmenewsStatus {
 
 		for (Status status : statuses) {
 
-			CloudNumber cloudNumber = status.connectResult.getCloudNumber();
-
-			buffer.append(status.date.toString() + ": " + cloudNumber + "\n");
+			buffer.append(status.toString() + "\n");
 		}
 
 		return buffer.toString();
@@ -39,5 +37,19 @@ public class AcmenewsStatus {
 
 		private Date date;
 		private ConnectResult connectResult;
+
+		private String getData() {
+
+			CloudNumber cloudNumber = this.connectResult.getCloudNumber();
+			return cloudNumber.toString();
+		}
+
+		@Override
+		public String toString() {
+
+			String data = this.getData();
+
+			return this.date.toString() + ": " + data + "\n";
+		}
 	}
 }

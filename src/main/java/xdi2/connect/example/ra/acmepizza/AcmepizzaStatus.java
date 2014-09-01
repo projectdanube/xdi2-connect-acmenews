@@ -3,8 +3,17 @@ package xdi2.connect.example.ra.acmepizza;
 import java.util.ArrayDeque;
 import java.util.Date;
 import java.util.Deque;
+import java.util.Iterator;
 
+import xdi2.client.agent.XDIAgent;
+import xdi2.client.agent.impl.XDIBasicAgent;
+import xdi2.client.exceptions.Xdi2ClientException;
 import xdi2.connect.core.ConnectResult;
+import xdi2.core.ContextNode;
+import xdi2.core.features.linkcontracts.instance.GenericLinkContract;
+import xdi2.core.features.linkcontracts.instance.LinkContract;
+import xdi2.core.syntax.XDIAddress;
+import xdi2.core.util.XDIAddressUtil;
 
 public class AcmepizzaStatus {
 
@@ -26,7 +35,7 @@ public class AcmepizzaStatus {
 
 		for (Status status : statuses) {
 
-			buffer.append(status.date.toString() + ": " + status.connectResult.getCloudNumber() + "\n");
+			buffer.append(status.toString() + "\n");
 		}
 
 		return buffer.toString();
@@ -36,5 +45,40 @@ public class AcmepizzaStatus {
 
 		private Date date;
 		private ConnectResult connectResult;
+
+		private String getData() {
+
+			Iterator<LinkContract> linkContracts = this.connectResult.getLinkContracts();
+			if (linkContracts == null || ! linkContracts.hasNext()) return null;
+
+			GenericLinkContract linkContract = (GenericLinkContract) linkContracts.next();
+			XDIAddress requestingAuthority = linkContract.getRequestingAuthority();
+
+			XDIAddress XDIaddress = XDIAddressUtil.concatXDIAddresses(requestingAuthority, XDIAddress.create("<#email>&"));
+
+			XDIAgent XDIagent = new XDIBasicAgent();
+			ContextNode contextNode;
+
+			try {
+
+				contextNode = XDIagent.get(XDIaddress, null);
+			} catch (Xdi2ClientException ex) {
+
+				return ex.getMessage();
+			}
+
+			if (contextNode == null) return null;
+			if (! contextNode.containsLiteral()) return null;
+
+			return contextNode.getLiteral().getLiteralDataString();
+		}
+
+		@Override
+		public String toString() {
+
+			String data = this.getData();
+
+			return this.date.toString() + ": " + data + "\n";
+		}
 	}
 }
