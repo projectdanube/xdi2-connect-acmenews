@@ -1,7 +1,6 @@
 <div id="footer">
-<img id="logoprojectdanube" src="/images/logo-projectdanube.png">
 <img id="logo" src="/images/logo64.png">
-<p class="no-margin" style="font-size: 12pt">This is part of a set of components related to the XDI Connect protocol:</p>
+<p class="no-margin">This is part of a set of components related to the XDI Connect protocol:</p>
 <table>
 <tr>
 <td><form action="https://github.com/projectdanube/xdi2-connect-example-ra" target="_blank"><input type="submit" value="xdi2-connect-example-ra"></form></td>

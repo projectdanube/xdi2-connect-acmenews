@@ -28,7 +28,7 @@
 	    <input type="submit" value="+acmenews" class="examplera">
 	</form>
 	</td>
-	<td>Demonstrates how to subscribe to a part of an XDI graph.<br>
+	<td>Demonstrates how to log in to an RA.<br>
 	<p class="small"><%= StringEscapeUtils.escapeHtml(AcmenewsStatus.status()).replace("\n", "<br>") %></p></td>
 	</tr></table>
 
@@ -39,7 +39,7 @@
 	    <input type="submit" value="+acmepizza" class="examplera">
 	</form>
 	</td>
-	<td>Demonstrates how to subscribe to a part of an XDI graph.
+	<td>Demonstrates how an RA subscribes to a part of an XDI graph.
 	<p class="small"><%= StringEscapeUtils.escapeHtml(AcmepizzaStatus.status()).replace("\n", "<br>") %></p></td>
 	</tr></table>
 
