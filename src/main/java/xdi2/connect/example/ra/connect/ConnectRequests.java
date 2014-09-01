@@ -24,7 +24,7 @@ public class ConnectRequests {
 
 				ACMENEWS_CONNECT_REQUEST = ConnectRequest.fromMessageEnvelope(MessageEnvelope.fromGraph(MemoryGraphFactory.getInstance().loadGraph(ConnectRequests.class.getResourceAsStream("/acmenews.message.xdi"))));
 				ACMENEWS_CONNECT_REQUEST.sign(CloudName.create("+acmenews"), "acmenews");
-				ACMENEWS_CONNECT_REQUEST.setReturnUri(URI.create(baseReturnUri + "/acmenews-return"));
+				ACMENEWS_CONNECT_REQUEST.setReturnUri(URI.create(baseReturnUri + "acmenews-return"));
 			} catch (Exception ex) {
 
 				throw new RuntimeException(ex.getMessage(), ex);
@@ -44,7 +44,7 @@ public class ConnectRequests {
 
 				ACMEPIZZA_CONNECT_REQUEST = ConnectRequest.fromMessageEnvelope(MessageEnvelope.fromGraph(MemoryGraphFactory.getInstance().loadGraph(ConnectRequests.class.getResourceAsStream("/acmepizza.message.xdi"))));
 				ACMEPIZZA_CONNECT_REQUEST.sign(CloudName.create("+acmepizza"), "acmepizza");
-				ACMEPIZZA_CONNECT_REQUEST.setReturnUri(URI.create(baseReturnUri + "/acmepizza-return"));
+				ACMEPIZZA_CONNECT_REQUEST.setReturnUri(URI.create(baseReturnUri + "acmepizza-return"));
 			} catch (Exception ex) {
 
 				throw new RuntimeException(ex.getMessage(), ex);

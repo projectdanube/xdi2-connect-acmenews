@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.Deque;
 import java.util.Iterator;
 
-import xdi2.client.agent.XDIAgent;
 import xdi2.client.agent.impl.XDIBasicAgent;
 import xdi2.client.exceptions.Xdi2ClientException;
 import xdi2.connect.core.ConnectResult;
@@ -56,7 +55,9 @@ public class AcmepizzaStatus {
 
 			XDIAddress XDIaddress = XDIAddressUtil.concatXDIAddresses(authorizingAuthority, XDIAddress.create("<#email>&"));
 
-			XDIAgent XDIagent = new XDIBasicAgent();
+			XDIBasicAgent XDIagent = new XDIBasicAgent();
+			XDIagent.setLinkContractXDIAddress(linkContract.getContextNode().getXDIAddress());
+
 			ContextNode contextNode;
 
 			try {
