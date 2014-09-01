@@ -41,6 +41,8 @@ public class AcmenewsStatus {
 		private String getData() {
 
 			CloudNumber cloudNumber = this.connectResult.getCloudNumber();
+			if (cloudNumber == null) return null;
+
 			return cloudNumber.toString();
 		}
 
