@@ -33,7 +33,7 @@
 		String xdiMessageEnvelope = ConnectRequests.acmepizzaConnectRequest(request).getMessageEnvelope().getGraph().toString("XDI/JSON", null);
 	%>
 
-	<center><form action="http://localhost:9201/connect" method="post">
+	<center><form action="<%= request.getServletContext().getInitParameter("connectEndpointUri") %>" method="post">
 
 		<input type="hidden" name="xdiMessageEnvelope" value="<%= StringEscapeUtils.escapeHtml(xdiMessageEnvelope) %>">	
 		<input type="submit" value="" class="xdiconnect">
