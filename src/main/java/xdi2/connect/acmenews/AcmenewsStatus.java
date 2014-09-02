@@ -1,4 +1,4 @@
-package xdi2.connect.example.ra.acmenews;
+package xdi2.connect.acmenews;
 
 import java.util.ArrayDeque;
 import java.util.Date;

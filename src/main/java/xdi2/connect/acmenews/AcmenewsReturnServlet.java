@@ -1,4 +1,4 @@
-package xdi2.connect.example.ra.acmepizza;
+package xdi2.connect.acmenews;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -18,11 +18,11 @@ import xdi2.core.impl.memory.MemoryGraphFactory;
 import xdi2.discovery.XDIDiscoveryClient;
 import xdi2.messaging.MessageResult;
 
-public class AcmepizzaReturnServlet extends HttpServlet {
+public class AcmenewsReturnServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 6595229713134390821L;
+	private static final long serialVersionUID = 8773872400446620010L;
 
-	private static Logger log = LoggerFactory.getLogger(AcmepizzaReturnServlet.class);
+	private static Logger log = LoggerFactory.getLogger(AcmenewsReturnServlet.class);
 
 	public static final String PARAMETER_XDI_MESSAGE_RESULT = "xdiMessageResult";
 
@@ -65,7 +65,7 @@ public class AcmepizzaReturnServlet extends HttpServlet {
 
 		// new status
 
-		AcmepizzaStatus.newStatus(connectResult);
+		AcmenewsStatus.newStatus(connectResult);
 
 		// show UI
 
@@ -95,7 +95,7 @@ public class AcmepizzaReturnServlet extends HttpServlet {
 
 		request.setAttribute(ATTRIBUTE_CONNECT_RESULT, connectResult);
 		request.setAttribute(ATTRIBUTE_OUTPUT_ID, outputId);
-		request.getRequestDispatcher("/acmepizza-return.jsp").forward(request, response);
+		request.getRequestDispatcher("/acmenews-return.jsp").forward(request, response);
 	}
 
 	private static void sendError(HttpServletRequest request, HttpServletResponse response, String xdiMessageEnvelope, String outputId, String error, Exception ex) throws ServletException, IOException {
@@ -104,7 +104,7 @@ public class AcmepizzaReturnServlet extends HttpServlet {
 		request.setAttribute("error", error);
 		request.setAttribute(ATTRIBUTE_CONNECT_RESULT, xdiMessageEnvelope);
 		request.setAttribute(ATTRIBUTE_OUTPUT_ID, outputId);
-		request.getRequestDispatcher("/acmepizza-return.jsp").forward(request, response);
+		request.getRequestDispatcher("/acmenews-return.jsp").forward(request, response);
 	}
 
 	private static void sendBadRequest(HttpServletRequest request, HttpServletResponse response, String error, Exception ex) throws ServletException, IOException {
