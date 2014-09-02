@@ -9,16 +9,14 @@ This is part of a set of projects related to XDI Connect:
 * [xdi2-connect-core](http://github.com/projectdanube/xdi2-connect-core)
 * [xdi2-connect-service](http://github.com/projectdanube/xdi2-connect-service)
 * [xdi2-connect-auth-service](http://github.com/projectdanube/xdi2-connect-auth-service)
-* [xdi2-connect-button-builder](http://github.com/projectdanube/xdi2-connect-button-builder)
-* [xdi2-connect-example-ra](http://github.com/projectdanube/xdi2-connect-example-ra)
+* [xdi2-connect-acmenews](http://github.com/projectdanube/xdi2-connect-acmenews)
+* [xdi2-connect-acmepizza](http://github.com/projectdanube/xdi2-connect-acmepizza)
 
 ### Information
 
-Example Requesting Authorities:
+Requesting Authorities:
 
-* [+acmenews](https://github.com/projectdanube/xdi2-connect-example-ra/wiki/acmenews) / **[+]!:uuid:0b0a38c7-1120-4194-ad4c-2f52acc0e1a5**
-* [+acmepizza](https://github.com/projectdanube/xdi2-connect-example-ra/wiki/acmepizza) / **[+]!:uuid:843085a3-0136-4bbb-b0a6-2f0e8d091c87**
-* [+acmeapp](https://github.com/projectdanube/xdi2-connect-example-ra/wiki/acmeapp) / **[+]!:uuid:89937447-82be-4fce-9640-7e0856255250**
+* [+acmenews](https://github.com/projectdanube/xdi2-connect-acmenews/wiki/acmenews) / **[+]!:uuid:0b0a38c7-1120-4194-ad4c-2f52acc0e1a5**
 
 ### How to build
 

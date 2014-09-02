@@ -3,27 +3,27 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>xdi2</groupId>
-	<artifactId>xdi2-connect-example-ra</artifactId>
+	<artifactId>xdi2-connect-acmenews</artifactId>
 	<packaging>war</packaging>
 	<version>0.1-SNAPSHOT</version>
-	<name>xdi2-connect-example-ra</name>
+	<name>xdi2-connect-acmenews</name>
 
 	<issueManagement>
-		<url>https://github.com/projectdanube/xdi2-connect-example-ra/issues</url>
+		<url>https://github.com/projectdanube/xdi2-connect-acmenews/issues</url>
 		<system>GitHub Issues</system>
 	</issueManagement>
 
 	<distributionManagement>
 		<site>
 			<id>github-project-site</id>
-			<url>scm:git:ssh://git@github.com/projectdanube/xdi2-connect-example-ra.git:gh-pages</url>
+			<url>scm:git:ssh://git@github.com/projectdanube/xdi2-connect-acmenews.git:gh-pages</url>
 		</site>
 	</distributionManagement>
 
 	<scm>
-		<url>https://github.com/projectdanube/xdi2-connect-example-ra</url>
-		<connection>scm:git:git://github.com/projectdanube/xdi2-connect-example-ra.git</connection>
-		<developerConnection>scm:git:git@github.com:projectdanube/xdi2-connect-example-ra.git</developerConnection>
+		<url>https://github.com/projectdanube/xdi2-connect-acmenews</url>
+		<connection>scm:git:git://github.com/projectdanube/xdi2-connect-acmenews.git</connection>
+		<developerConnection>scm:git:git@github.com:projectdanube/xdi2-connect-acmenews.git</developerConnection>
 	</scm>
 
 	<properties>
