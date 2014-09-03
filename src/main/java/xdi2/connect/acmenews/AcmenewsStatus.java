@@ -27,7 +27,7 @@ public class AcmenewsStatus {
 
 		for (Status status : statuses) {
 
-			buffer.append(status.toString() + "\n");
+			buffer.insert(0, status.toString() + "\n");
 		}
 
 		return buffer.toString();
