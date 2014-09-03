@@ -12,11 +12,8 @@
 <body>
 
 	<div id="header">
-		<img src="/images/app.png" class="app">
-		<span id="appname">Example RA +acmenews</span>
-		Demonstrates how to log in to an RA.
-		<hr noshade>
-		<hr noshade>
+		<center><img src="/images/app.png" class="app">
+		<span id="appname">Example RA +acmenews</span></center>
 	</div>
 
 	<center><img src="/images/acmenews.png" class="splash"></center>
