@@ -2,6 +2,7 @@ package xdi2.connect.acmenews;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.URL;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -25,6 +26,7 @@ public class AcmenewsReturnServlet extends HttpServlet {
 	private static Logger log = LoggerFactory.getLogger(AcmenewsReturnServlet.class);
 
 	public static final String PARAMETER_XDI_MESSAGE_RESULT = "xdiMessageResult";
+	public static final String PARAMETER_REGISTRY_ENDPOINT_URL = "registryEndpointUrl";
 
 	public static final String ATTRIBUTE_CONNECT_RESULT = "connectResult";
 	public static final String ATTRIBUTE_OUTPUT_ID = "outputId";
@@ -37,6 +39,9 @@ public class AcmenewsReturnServlet extends HttpServlet {
 		// read parameters
 
 		String xdiMessageResult = request.getParameter(PARAMETER_XDI_MESSAGE_RESULT);
+		String registryEndpointUrlString = request.getParameter(PARAMETER_REGISTRY_ENDPOINT_URL);
+
+		URL registryEndpointUrl = registryEndpointUrlString == null ? null : new URL(registryEndpointUrlString);
 
 		// check Connect response
 
@@ -65,7 +70,7 @@ public class AcmenewsReturnServlet extends HttpServlet {
 
 		// new status
 
-		AcmenewsStatus.newStatus(connectResult);
+		AcmenewsStatus.newStatus(connectResult, registryEndpointUrl);
 
 		// show UI
 
