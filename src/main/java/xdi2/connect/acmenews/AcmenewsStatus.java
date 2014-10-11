@@ -5,18 +5,18 @@ import java.util.ArrayDeque;
 import java.util.Date;
 import java.util.Deque;
 
-import xdi2.connect.core.ConnectResult;
+import xdi2.connect.core.ConnectionResult;
 import xdi2.core.syntax.CloudNumber;
 
 public class AcmenewsStatus {
 
 	private static Deque<Status> statuses = new ArrayDeque<Status> ();
 
-	public static void newStatus(ConnectResult connectResult, URL registryEndpointUrl) {
+	public static void newStatus(ConnectionResult connectionResult, URL registryEndpointUrl) {
 
 		Status status = new Status();
 		status.date = new Date();
-		status.connectResult = connectResult;
+		status.connectionResult = connectionResult;
 		status.registryEndpointUrl = registryEndpointUrl;
 
 		statuses.add(status);
@@ -38,12 +38,12 @@ public class AcmenewsStatus {
 	private static class Status {
 
 		private Date date;
-		private ConnectResult connectResult;
+		private ConnectionResult connectionResult;
 		private URL registryEndpointUrl;
 
 		private String getData() {
 
-			CloudNumber cloudNumber = this.connectResult.getCloudNumber();
+			CloudNumber cloudNumber = this.connectionResult.getCloudNumber();
 			if (cloudNumber == null) return null;
 
 			return cloudNumber.toString();
