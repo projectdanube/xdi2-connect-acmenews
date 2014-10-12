@@ -7,7 +7,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>XDI Connect - Example RA +acmenews</title>
+	<title>Example Business Cloud +acmenews</title>
 	<link rel="stylesheet" target="_blank" href="/style.css" TYPE="text/css" MEDIA="screen">
 </head>
 
@@ -15,7 +15,7 @@
 
 	<div id="header">
 		<center><img src="/images/app.png" class="app">
-		<span id="appname">Example RA +acmenews</span></center>
+		<span id="appname">Example Business Cloud +acmenews</span></center>
 	</div>
 
 	<center><img src="/images/acmenews.png" class="splash"></center>
@@ -34,7 +34,7 @@
 
 		<input type="hidden" name="xdiMessageEnvelope" value="<%= StringEscapeUtils.escapeHtml(xdiMessageEnvelope) %>">	
 		<input type="submit" value="" class="xdiconnect">
-		(Send Connection Request)
+		<p>(Send Connection Request)</p>
 	
 	</form></center>
 
