@@ -16,11 +16,6 @@
 
 <body>
 
-	<div id="header">
-		<center><img src="/images/app.png" class="app">
-		<span id="appname">Example Business Cloud +acmenews</span></center>
-	</div>
-
 	<center><img src="/images/acmenews.png" class="splash"></center>
 
 	<% if (request.getAttribute("error") != null) { %>
@@ -38,24 +33,36 @@
 	<% 
 		ConnectionResult connectionResult = (ConnectionResult) request.getAttribute("connectionResult");
 	%> 
+	
+	<center><table class="main"><tr><td>
+	
+		<center><img src="/images/app.png" class="app">
+		<span id="appname">Example Business Cloud +acmenews</span></center>
+	
+	</td><td>
+	
+		<form action="<%= request.getServletContext().getInitParameter("connectEndpointUri") %>" method="post">
+		<input type="hidden" name="xdiMessageEnvelope" value="<%= StringEscapeUtils.escapeHtml(xdiMessageEnvelope) %>">	
+		<input type="submit" value="" class="xdiconnect">
+		</form>
+		
+	</td></tr>
 
 	<% if (connectionResult != null) { %>
+
+		<tr><td colspan="2">
 
 		<p>And we're back at +acmenews.</p>
 	
 		<% if (connectionResult.getCloudNumber() != null) { %>
 		<p>We have identified you as: <b><%= StringEscapeUtils.escapeHtml(connectionResult.getCloudNumber().toString()) %></b></p>
 		<% } %>
+		
+		</td></tr>
 	
 	<% } %>
 	
-	<center><form action="<%= request.getServletContext().getInitParameter("connectEndpointUri") %>" method="post">
-
-		<input type="hidden" name="xdiMessageEnvelope" value="<%= StringEscapeUtils.escapeHtml(xdiMessageEnvelope) %>">	
-		<input type="submit" value="" class="xdiconnect">
-		<p>(Send Connection Request)</p>
-	
-	</form></center>	
+	</table></center>	
 
 	</div>
 	
