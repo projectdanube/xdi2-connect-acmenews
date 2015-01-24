@@ -1,7 +1,9 @@
 <a href="http://projectdanube.org/" target="_blank"><img src="http://projectdanube.github.com/xdi2/images/projectdanube_logo.png" align="right"></a>
 <img src="http://projectdanube.github.com/xdi2/images/logo64.png"><br>
 
-This is an "Example Requesting Authority" component for the XDI Connect protocol.
+ +acmenews XDI2 demo [https://acmenews.projectdanube.org/](https://acmenews.projectdanube.org/)
+
+A business requesting authority (RA) requests a cloud number for login purposes from an individual authorizing authority (AA). This happens via a button on a webpage.
 
 ### Information
 
