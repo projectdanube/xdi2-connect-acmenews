@@ -3,9 +3,11 @@
 
 This is an "Example Requesting Authority" component for the XDI Connect protocol.
 
-### Walkthrough
+### Information
 
-[[Walkthrough]]
+* [Walkthrough]
+* [Screencast]
+
 
 ### How to build
 
