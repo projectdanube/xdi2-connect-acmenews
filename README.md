@@ -5,9 +5,8 @@ This is an "Example Requesting Authority" component for the XDI Connect protocol
 
 ### Information
 
-* [Walkthrough]
-* [Screencast]
-
+* [Walkthrough](https://github.com/projectdanube/xdi2-connect-acmenews/wiki/Walkthrough)
+* [Screencast](https://github.com/projectdanube/xdi2-connect-acmenews/wiki/Screencast)
 
 ### How to build
 
