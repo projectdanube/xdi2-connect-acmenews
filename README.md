@@ -3,7 +3,7 @@
 
  +acmenews XDI2 demo [https://acmenews.projectdanube.org/](https://acmenews.projectdanube.org/)
 
-A business requesting authority (RA) requests a cloud number for login purposes from an individual authorizing authority (AA). This happens via a button on a webpage.
+A business requesting authority (RA) issues a "connection request" to request a cloud number for login purposes from an individual authorizing authority (AA). This happens via an "XDI Connect" button on a webpage.
 
 ### Information
 
