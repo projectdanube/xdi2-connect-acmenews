@@ -1,6 +1,6 @@
 package xdi2.connect.acmenews;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.ArrayDeque;
 import java.util.Date;
 import java.util.Deque;
@@ -12,12 +12,12 @@ public class AcmenewsStatus {
 
 	private static Deque<Status> statuses = new ArrayDeque<Status> ();
 
-	public static void newStatus(ConnectionResult connectionResult, URL registryEndpointUrl) {
+	public static void newStatus(ConnectionResult connectionResult, URI registryEndpointUri) {
 
 		Status status = new Status();
 		status.date = new Date();
 		status.connectionResult = connectionResult;
-		status.registryEndpointUrl = registryEndpointUrl;
+		status.registryEndpointUri = registryEndpointUri;
 
 		statuses.add(status);
 		if (statuses.size() > 10) statuses.removeFirst();
@@ -39,7 +39,7 @@ public class AcmenewsStatus {
 
 		private Date date;
 		private ConnectionResult connectionResult;
-		private URL registryEndpointUrl;
+		private URI registryEndpointUri;
 
 		private String getData() {
 

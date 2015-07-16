@@ -2,7 +2,7 @@ package xdi2.connect.acmenews;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.net.URL;
+import java.net.URI;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -17,7 +17,8 @@ import xdi2.connect.core.ConnectionResult;
 import xdi2.connect.output.OutputCache;
 import xdi2.core.impl.memory.MemoryGraphFactory;
 import xdi2.discovery.XDIDiscoveryClient;
-import xdi2.messaging.MessageResult;
+import xdi2.messaging.response.LightMessagingResponse;
+import xdi2.messaging.response.MessagingResponse;
 
 public class AcmenewsReturnServlet extends HttpServlet {
 
@@ -25,8 +26,8 @@ public class AcmenewsReturnServlet extends HttpServlet {
 
 	private static Logger log = LoggerFactory.getLogger(AcmenewsReturnServlet.class);
 
-	public static final String PARAMETER_XDI_MESSAGE_RESULT = "xdiMessageResult";
-	public static final String PARAMETER_REGISTRY_ENDPOINT_URL = "registryEndpointUrl";
+	public static final String PARAMETER_XDI_MESSAGE_RESULT = "xdiMessagingResponse";
+	public static final String PARAMETER_REGISTRY_ENDPOINT_URI = "registryEndpointUri";
 
 	public static final String ATTRIBUTE_CONNECT_RESULT = "connectionResult";
 	public static final String ATTRIBUTE_OUTPUT_ID = "outputId";
@@ -38,29 +39,29 @@ public class AcmenewsReturnServlet extends HttpServlet {
 
 		// read parameters
 
-		String xdiMessageResult = request.getParameter(PARAMETER_XDI_MESSAGE_RESULT);
-		String registryEndpointUrlString = request.getParameter(PARAMETER_REGISTRY_ENDPOINT_URL);
+		String xdiMessagingResponse = request.getParameter(PARAMETER_XDI_MESSAGE_RESULT);
+		String registryEndpointUriString = request.getParameter(PARAMETER_REGISTRY_ENDPOINT_URI);
 
-		URL registryEndpointUrl = registryEndpointUrlString == null ? null : new URL(registryEndpointUrlString);
+		URI registryEndpointUri = registryEndpointUriString == null ? null : URI.create(registryEndpointUriString);
 
 		// check Connect response
 
-		if (xdiMessageResult == null) {
+		if (xdiMessagingResponse == null) {
 
 			String error = "Missing '" + PARAMETER_XDI_MESSAGE_RESULT + "' parameter.";
 			sendBadRequest(request, response, error, null);
 			return;
 		}
 
-		MessageResult messageResult;
+		MessagingResponse messagingResponse;
 		ConnectionResult connectionResult;
 		String outputId = UUID.randomUUID().toString();
 
 		try {
 
-			messageResult = MessageResult.fromGraph(MemoryGraphFactory.getInstance().loadGraph(new StringReader(xdiMessageResult)));
-			connectionResult = ConnectionResult.fromContextNode(messageResult);
-			OutputCache.put(outputId, messageResult.getGraph());
+			messagingResponse = LightMessagingResponse.fromGraph(MemoryGraphFactory.getInstance().loadGraph(new StringReader(xdiMessagingResponse)));
+			connectionResult = ConnectionResult.fromContextNode(messagingResponse);
+			OutputCache.put(outputId, messagingResponse.getResultGraph());
 		} catch (Exception ex) {
 
 			String error = "Cannot parse '" + PARAMETER_XDI_MESSAGE_RESULT + "' parameter: " + ex.getMessage();
@@ -70,7 +71,7 @@ public class AcmenewsReturnServlet extends HttpServlet {
 
 		// new status
 
-		AcmenewsStatus.newStatus(connectionResult, registryEndpointUrl);
+		AcmenewsStatus.newStatus(connectionResult, registryEndpointUri);
 
 		// show UI
 
