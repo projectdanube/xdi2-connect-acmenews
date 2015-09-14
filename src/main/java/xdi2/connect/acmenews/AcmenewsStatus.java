@@ -12,12 +12,12 @@ public class AcmenewsStatus {
 
 	private static Deque<Status> statuses = new ArrayDeque<Status> ();
 
-	public static void newStatus(ConnectionResult connectionResult, URI registryEndpointUri) {
+	public static void newStatus(ConnectionResult connectionResult, URI discovery) {
 
 		Status status = new Status();
 		status.date = new Date();
 		status.connectionResult = connectionResult;
-		status.registryEndpointUri = registryEndpointUri;
+		status.discovery = discovery;
 
 		statuses.add(status);
 		if (statuses.size() > 10) statuses.removeFirst();
@@ -39,7 +39,7 @@ public class AcmenewsStatus {
 
 		private Date date;
 		private ConnectionResult connectionResult;
-		private URI registryEndpointUri;
+		private URI discovery;
 
 		private String getData() {
 
