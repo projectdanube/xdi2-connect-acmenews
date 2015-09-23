@@ -26,7 +26,7 @@ public class AcmenewsReturnServlet extends HttpServlet {
 
 	private static Logger log = LoggerFactory.getLogger(AcmenewsReturnServlet.class);
 
-	public static final String PARAMETER_XDI_MESSAGE_RESULT = "xdiMessagingResponse";
+	public static final String PARAMETER_XDI_MESSAGE_RESULT = "xdi";
 	public static final String PARAMETER_DISCOVERY_ENDPOINT = "discovery";
 
 	public static final String ATTRIBUTE_CONNECT_RESULT = "connectionResult";
@@ -39,14 +39,14 @@ public class AcmenewsReturnServlet extends HttpServlet {
 
 		// read parameters
 
-		String xdiMessagingResponse = request.getParameter(PARAMETER_XDI_MESSAGE_RESULT);
+		String xdi = request.getParameter(PARAMETER_XDI_MESSAGE_RESULT);
 		String discoveryString = request.getParameter(PARAMETER_DISCOVERY_ENDPOINT);
 
 		URI discovery = discoveryString == null ? null : URI.create(discoveryString);
 
 		// check Connect response
 
-		if (xdiMessagingResponse == null) {
+		if (xdi == null) {
 
 			String error = "Missing '" + PARAMETER_XDI_MESSAGE_RESULT + "' parameter.";
 			sendBadRequest(request, response, error, null);
@@ -59,7 +59,7 @@ public class AcmenewsReturnServlet extends HttpServlet {
 
 		try {
 
-			messagingResponse = LightMessagingResponse.fromGraph(MemoryGraphFactory.getInstance().loadGraph(new StringReader(xdiMessagingResponse)));
+			messagingResponse = LightMessagingResponse.fromGraph(MemoryGraphFactory.getInstance().loadGraph(new StringReader(xdi)));
 			connectionResult = ConnectionResult.fromContextNode(messagingResponse);
 			OutputCache.put(outputId, messagingResponse.getResultGraph());
 		} catch (Exception ex) {
